@@ -7,22 +7,30 @@
     <meta charset='utf-8'>
     <title>Tic-Tac-Toe</title>
     <style>
+     /* body {
+        background-image: url("http://www.gstatic.com/tv/thumb/tvbanners/185575/p185575_b_v8_ag.jpg");
+        position: relative;
+        opacity: 0.5;
+      }*/
       h1, h3 {
         text-align: center;
       }
       table { 
-        width: 40%;
-        height: relative; 
+        width: 500px;
+        height: 500px;
+        border: 1px solid black;
         border-collapse: collapse;
       }
+      tr {
+        height: 6em;
+        position: relative;
+        
+      }
       td { 
+        text-align: center;
         width: 33.33%; 
         border: 6px solid #222;
-      }
-      td:after {
-        content: '';
-        display: block;
-        margin-top: 100%;
+        vertical-align: middle;
       }
       td:first-of-type {
         border-left-color: transparent;
@@ -46,27 +54,26 @@
     <h3>Don't know how to play? Read the <a href="http://web.cecs.pdx.edu/~bart/cs541-fall2001/homework/tictactoe-rules.html">rules</a>!
     <br>
     <br>
-    <!-- <img src="http://tiphero.com/wp-content/uploads/2015/11/TicTacToeBoard-780x364.jpg"> -->
     <table id="board" align="center">
-      <tr onclick='click();' id='row1' >
-        <td id='square1' onclick='click();'></td>
-        <td id='square2' onclick='click();'></td>
-        <td id='square3' onclick='click();'></td>
+      <tr id='row1'>
+        <td class='square r1 c1 d1' id='1'></td>
+        <td class='square r1 c2'></td>
+        <td class='square r1 c3 d2'></td>
       </tr>
       <tr id='row2'>
-        <td id='square4' onclick='click();'></td>
-        <td id='square5' onclick='click();'></td>
-        <td id='square6' onclick='click();'></td>
+        <td class='square r2 c1' id='square1'></td>
+        <td class='square r2 c2 d1 d2' id='square1'></td>
+        <td class='square r2 c3' id='square1'></td>
       </tr>
       <tr id='row3'>
-        <td id='square7' onclick='click();'></td>
-        <td id='square8' onclick='click();'></td>
-        <td id='square9' onclick='click();'></td>
+        <td class='square r3 c1 d2' id='square1'></td>
+        <td class='square r3 c2' id='square1'></td>
+        <td class='square r3 c3 d1' id='square1'></td>
       </tr>
     </table
   </body>
   <br>
-  <button onclick='click();'>New game</button>
+  <button id='new'>New game</button>
   <script src="app.js"></script>    
 </html>
 
