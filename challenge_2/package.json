@@ -1,0 +1,20 @@
+{
+  "name": "csvreportgenerator",
+  "version": "1.0.0",
+  "description": "CSV Report Generator",
+  "main": "server.js",
+  "scripts": {
+    "test": "test",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hanjoon-kim/hrsf99-mini-apps-1/challenge_2.git"
+  },
+  "author": "Hanjoon Kim",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.3",
+    "nodemon": "^1.17.5"
+  }
+}
