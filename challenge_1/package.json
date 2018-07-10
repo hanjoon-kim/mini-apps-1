@@ -1,0 +1,27 @@
+{
+  "name": "tictactoe",
+  "version": "1.0.0",
+  "description": "Play some tictactoe",
+  "main": "3000",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hanjoon-kim/hrsf99-mini-apps-1.git"
+  },
+  "keywords": [
+    "tic",
+    "tac",
+    "toe"
+  ],
+  "author": "Hanjoon Kim",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hanjoon-kim/hrsf99-mini-apps-1/issues"
+  },
+  "homepage": "https://github.com/hanjoon-kim/hrsf99-mini-apps-1#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
