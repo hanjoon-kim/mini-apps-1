@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/hanjoon-kim/hrsf99-mini-apps-1#readme",
   "dependencies": {
-    "express": "^4.16.3"
+    "express": "^4.16.3",
+    "nodemon": "^1.17.5"
   }
 }

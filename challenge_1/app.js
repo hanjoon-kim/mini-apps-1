@@ -131,10 +131,11 @@ var initialize = function() {
   
   for (let i = 0; i < square.length; i++) {
     square[i].innerHTML = '';
-    turn = true;
-    turnCount = 0;
-    gameEnd = false;
   }
+  
+  turn = true;
+  turnCount = 0;
+  gameEnd = false;
 };
 
 initialize();
