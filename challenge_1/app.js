@@ -12,12 +12,7 @@ var gameEnd = false;
 var newGame = document.getElementById('new');
 
 newGame.addEventListener('click', function() {
-  for (let i = 0; i < square.length; i++) {
-    square[i].innerHTML = '';
-    turn = true;
-    turnCount = 0;
-    gameEnd = false;
-  }
+ initialize();
 });
 
 var row1 = document.getElementsByClassName('r1');
@@ -29,22 +24,26 @@ var col3 = document.getElementsByClassName('c3');
 var diag1 = document.getElementsByClassName('d1');
 var diag2 = document.getElementsByClassName('d2');
 
+var addClicks = function() {
+  if (this.innerHTML === '') {
+    if (turn) {
+      this.innerHTML = 'X';
+      turnCount++;
+      checkState();
+      turn = !turn;
+    } else {
+      this.innerHTML = 'O';
+      turnCount++;
+      checkState();
+      turn = !turn;
+    }
+  }
+  }
+  
 var endGame = function() {
   for (let i = 0; i < square.length; i++) {
     var elem = square[i];
-    elem.removeEventListener('click', function() {
-      if (this.innerHTML === '') {
-        if (turn) {
-          this.innerHTML = 'X';
-          checkState();
-          turn = !turn;
-        } else {
-          this.innerHTML = 'O';
-          checkState();
-          turn = !turn;
-        }
-      }
-    }, true);
+    elem.removeEventListener('click', addClicks, false);
   }
 }
 var checkState = function() {
@@ -110,22 +109,19 @@ var checkDiagonals = function(diag) {
   }
 };
 
-for (let i = 0; i < square.length; i++) {
-  var elem = square[i];
-  elem.addEventListener('click', function() {
-    if (this.innerHTML === '') {
-      if (turn) {
-        this.innerHTML = 'X';
-        turnCount++;
-        checkState();
-        turn = !turn;
-      } else {
-        this.innerHTML = 'O';
-        turnCount++;
-        checkState();
-        turn = !turn;
-      }
-    }
-  }, false);
+var initialize = function() {
+  for (let i = 0; i < square.length; i++) {
+    var elem = square[i];
+    elem.addEventListener('click', addClicks, false);
+  }
+  
+  for (let i = 0; i < square.length; i++) {
+    square[i].innerHTML = '';
+    turn = true;
+    turnCount = 0;
+    gameEnd = false;
+  }
 }
+
+initialize();
 
