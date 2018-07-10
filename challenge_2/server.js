@@ -6,12 +6,11 @@ var port = 3000;
 var urlencodedParser = bodyParser.urlencoded({extended: false});
 
 app.use(express.static('client'));
-app.get('client/index.html', function(req, res) {
-  res.sendFile(__dirname + "/" + 'index.html');
+app.get('/client/index.html', function(req, res) {
+  res.sendFile(__dirname + '/client/index.html');
 })
 
 app.post('/', urlencodedParser, function(req, res) {
-  console.log(req);
   response = {
     CSV: req.body.input
   };
