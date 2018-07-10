@@ -1,17 +1,27 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+    <style>
+    
+    </style>
     <h2>
       <div>CSV Report Generator</div>
     </h2>
     <meta charset="utf-8">
   </head>
   <body>
-    <form action="http://127.0.0.1:3000/process_get" method="GET">
+    <form id="form">
       <input type="textarea" name="input"><br>
       <input type="submit" value="Submit">
+      <div id="results">
+        <span>GIVE ME SOME SALES REPORTS</span>
+      </div>
     </form>
   </body>
-  <script src="app.js"></script>
+    <script src="app.js"></script>
 </html> 
 
