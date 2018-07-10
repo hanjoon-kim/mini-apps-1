@@ -46,12 +46,16 @@
       tr:nth-of-type(3) td {
         border-bottom-color: transparent;
       }
+      #new {
+        text-align: center;
+      }
     </style>
   </head>  
   <body>
     <h1>Lose to Hanjoon at Tic-Tac-Toe</h1>
-    <h2></h2>
     <h3>Don't know how to play? Read the <a href="http://web.cecs.pdx.edu/~bart/cs541-fall2001/homework/tictactoe-rules.html">rules</a>!
+    <div id='player1' align=left>Player 1's Score: 0</div>
+    <div id='player2' align=right>Player 2's Score: 0</div>
     <br>
     <br>
     <table id="board" align="center">
@@ -70,10 +74,11 @@
         <td class='square r3 c2' id='square1'></td>
         <td class='square r3 c3 d1' id='square1'></td>
       </tr>
-    </table
+    </table>
+    
   </body>
   <br>
-  <button id='new'>New game</button>
+  <button id='new'>New Game</button>
   <script src="app.js"></script>    
 </html>
 

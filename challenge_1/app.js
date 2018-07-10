@@ -9,7 +9,11 @@ var square = document.getElementsByClassName('square');
 var turn = true;
 var turnCount = 0;
 var gameEnd = false;
+var scorePlayerOne = 0;
+var scorePlayerTwo = 0;
 var newGame = document.getElementById('new');
+var playerOne = document.getElementById('player1');
+var playerTwo = document.getElementById('player2');
 
 newGame.addEventListener('click', function() {
  initialize();
@@ -38,14 +42,24 @@ var addClicks = function() {
       turn = !turn;
     }
   }
-  }
+};
   
 var endGame = function() {
   for (let i = 0; i < square.length; i++) {
     var elem = square[i];
     elem.removeEventListener('click', addClicks, false);
   }
-}
+  if (turnCount !== 9) {
+    if (turn) {
+      scorePlayerOne++;
+      playerOne.innerHTML = `Player 1's Score: ${scorePlayerOne}`;
+    } else {
+      scorePlayerTwo++;
+      playerTwo.innerHTML = `Player 2's Score: ${scorePlayerTwo}`;
+    }
+  }
+};
+
 var checkState = function() {
   //next steps include grabbing the row and column of the click and only checking those
   checkRow(row1);
@@ -121,7 +135,7 @@ var initialize = function() {
     turnCount = 0;
     gameEnd = false;
   }
-}
+};
 
 initialize();
 
