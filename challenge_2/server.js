@@ -3,27 +3,55 @@ var app = express();
 var bodyParser = require('body-parser');
 var port = 3000;
 
-var urlencodedParser = bodyParser.urlencoded({extended: false});
-
 app.use(express.static('client'));
-app.get('/client/index.html', function(req, res) {
-  res.sendFile(__dirname + '/client/index.html');
-})
+app.use(bodyParser.json());
 
-app.post('/', urlencodedParser, function(req, res) {
-  response = {
-    CSV: req.body.input
-  };
-  res.end(JSON.stringify(response));
-})
+app.post('/', function(req, res) {
+  console.log(req.body);
+  var inputObj = req.body;
+  var final = createCsv(inputObj);
+  res.end(final);
+});
 
-
-// app.get('/process_get', function(req, res) {
-//   response = {
-//     CSV: req.query.input
-//   };
-//   console.log(response);
-//   res.end(JSON.stringify(response));
-// })
 
 app.listen(port, () => console.log(`listening on ${port}`));
+
+var createCsv = function(inputObj) {
+
+  var listEmployees = function(inputObj) {
+    let row = '';
+    
+    for (let key in inputObj) {
+      if (!Array.isArray(inputObj[key])) {
+        row += ', ' + inputObj[key];
+      }
+    }
+    
+    row = row.slice(2) + '<br>';
+    final += row;
+
+    for (let i = 0; i < inputObj.children.length; i++) {
+      listEmployees(inputObj.children[i]);
+    }
+  };
+
+  var final = setHeaders(inputObj);
+  listEmployees(inputObj);
+
+  return final;
+};
+
+var setHeaders = function(inputObj) {
+  var final = '';
+  
+  for (let key in inputObj) {
+    final += ', ' + key;
+  }
+  
+  final = final.slice(2);
+  final = final.substring(0, final.length - 10) + '<br>';
+
+  return final;
+};
+
+
