@@ -61,6 +61,10 @@ class AccountFields extends React.Component {
   }
   
   handleSubmit(e) {
+    fieldValues.name = this.state.name;
+    fieldValues.email = this.state.email;
+    fieldValues.password = this.state.password;
+    console.log(fieldValues);
     console.log('submitted woo' + this.state.name + this.state.email + this.state.password);
     e.preventDefault();
   }
@@ -97,7 +101,8 @@ class AddressFields extends React.Component {
       addressTwo: '',
       city: '',
       state: '',
-      zipcode: ''
+      zipcode: '',
+      phoneNumber: ''
       
     };
     this.handleChange = this.handleChange.bind(this);
@@ -114,8 +119,15 @@ class AddressFields extends React.Component {
   }
   
   handleSubmit(e) {
+    fieldValues.addressOne = this.state.addressOne;
+    fieldValues.addressTwo = this.state.addressTwo;
+    fieldValues.city = this.state.city;
+    fieldValues.state = this.state.state;
+    fieldValues.zipcode = this.state.zipcode;
+    fieldValues.phoneNumber = this.state.phoneNumber;
     console.log('submitted woo ' + this.state.zipCode + this.state.addressTwo + this.state.state);
     e.preventDefault();
+    
   }
 
   render() {
@@ -139,6 +151,8 @@ class AddressFields extends React.Component {
             <input type="text" name="state" onChange={this.handleChange}/><br/>
           <label>Zip Code: </label> 
             <input type="text" name="zipcode" onChange={this.handleChange}/><br/>
+          <label>Phone Number: </label> 
+            <input type="text" name="phoneNumber" onChange={this.handleChange}/><br/>
         </form>
         <button onClick={(e) => {this.handleSubmit(e); this.setState({form: 4});}}>Next</button>
       </div>
@@ -170,8 +184,14 @@ class PaymentFields extends React.Component {
   }
   
   handleSubmit(e) {
+    fieldValues.creditCard = this.state.creditCard;
+    fieldValues.expireDate = this.state.expireDate;
+    fieldValues.cvv = this.state.cvv;
+    fieldValues.billingZip = this.state.billingZip;
+    
     console.log('submitted woo' + this.state.creditCard + this.state.expireDate + this.state.cvv);
     e.preventDefault();
+
   }
   
   render() {
@@ -212,6 +232,19 @@ class Confirmation extends React.Component {
   handleSubmit(e) {
     console.log('submitted woo' + this.state.name + this.state.email + this.state.password);
     e.preventDefault();
+    console.log(JSON.stringify(fieldValues));
+    $.ajax({
+      type: "POST",
+      url: '/',
+      data: JSON.stringify(fieldValues),
+      contentType: 'application/json',
+      success (data) {
+        console.log('successfully posted');
+      },
+      error(err) {
+        console.log(err);
+      }
+    });
   }
   
   render() {
@@ -222,7 +255,7 @@ class Confirmation extends React.Component {
 
     return(
       <div>
-        <button onClick={() => this.setState({form: 1})}>Purchase!</button>
+        <button onClick={(e) => {this.handleSubmit(e); this.setState({form: 1});}}>Purchase!</button>
       </div>
     )
   }

@@ -13,12 +13,12 @@ CREATE TABLE purchases (
   addressTwo varchar(255),
   city varchar(50) NOT NULL,
   state varchar(25) NOT NULL,
-  zipcode int NOT NULL,
+  zipcode varchar(20) NOT NULL,
   phoneNumber varchar(20) NOT NULL,
   creditCard varchar(20) NOT NULL,
   expireDate varchar(10) NOT NULL,
-  cvv int NOT NULL,
-  billingZip int NOT NULL,
+  cvv varchar(20) NOT NULL,
+  billingZip varchar(20) NOT NULL,
   PRIMARY KEY(id)
 );
 
@@ -26,5 +26,12 @@ INSERT INTO purchases
 (name, email, password, addressOne, addressTwo, city, 
 state, zipcode, phoneNumber, creditCard, expireDate, cvv, billingZip)
 VALUES ('Hanjoon Kim', 'hanjoon3@hotmail.com', 'nicksucks', 
-'1515 Pullman Way', 'APT #230', 'Oakland', 'CA', 94607, '4807100560', 
-'1234123412341234', '05/30', 523, 94607)
+'1515 Pullman Way', 'APT #230', 'Oakland', 'CA', '94607', '4807100560', 
+'1234123412341234', '05/30', '523', '94607');
+
+INSERT INTO purchases 
+(name, email, password, addressOne, addressTwo, city, 
+state, zipcode, phoneNumber, creditCard, expireDate, cvv, billingZip)
+VALUES ('Hanjoon Kim', 'hanjoon3@hotmail.com', 'nicksucks', 
+'1515 Pullman Way', 'APT #230', 'Oakland', 'CA', '94607', '4807100560', 
+'1234123412341234', '05/30', '523', '94607');
