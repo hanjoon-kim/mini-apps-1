@@ -2,15 +2,11 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = { 
-      checkout: false,
       form: 1
     };
   }
   
   render() {
-    if (this.state.checkout) {
-      console.log('checkedout');
-    }
     
     if (this.state.form === 1) {
       return ( 
@@ -34,7 +30,7 @@ var fieldValues = {
   addressTwo: null,
   city: null,
   state: null,
-  zipCode: null,
+  zipcode: null,
   phoneNumber: null,
   creditCard: null,
   expireDate: null,
@@ -101,7 +97,7 @@ class AddressFields extends React.Component {
       addressTwo: '',
       city: '',
       state: '',
-      zipCode: ''
+      zipcode: ''
       
     };
     this.handleChange = this.handleChange.bind(this);
@@ -142,7 +138,7 @@ class AddressFields extends React.Component {
           <label>State: </label> 
             <input type="text" name="state" onChange={this.handleChange}/><br/>
           <label>Zip Code: </label> 
-            <input type="text" name="zipCode" onChange={this.handleChange}/><br/>
+            <input type="text" name="zipcode" onChange={this.handleChange}/><br/>
         </form>
         <button onClick={(e) => {this.handleSubmit(e); this.setState({form: 4});}}>Next</button>
       </div>
