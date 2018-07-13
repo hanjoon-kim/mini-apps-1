@@ -14,20 +14,21 @@ class App extends React.Component {
       ]
     };
   }
-
+  
+  handleClick() {
+    
+  }
   
   render() {
-    {console.log(this.state.board)};
-    var board = this.state.board.map((row, x) => {
-      row.map((tile, y) => {
-        <Square status={tile} x={x} y={y} ß/>
-      });
-    });
+    
+    const board = [];
+    for (let i = 0; i < 6; i++) {
+      board.push(<Row />);
+    }
 
     return (
-      <div>{board} {console.log(board)}
-
-      <Row />
+      <div>
+        {board} 
       </div>
     );
   }
@@ -42,14 +43,17 @@ class Row extends React.Component {
   };
 
   render() {
-    var row = this.state.row.map(tile => {
-      <Square />
-    });
+    const row = [];
+    for (let j = 0; j < 7; j++) {
+       row.push(<Square />);
+    }
+    
     return (
-      <div>{row}</div>
+      <div className="row">{row}</div>
     )
   }
 }
+
 class Square extends React.Component {
   constructor(props) {
     super(props);
